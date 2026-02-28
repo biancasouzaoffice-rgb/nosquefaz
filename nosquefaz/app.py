@@ -1,9 +1,10 @@
-from flask import Flask, redirect, render_template, request, url_for
+from flask import Flask, redirect, render_template, request
 import urllib.parse
 
 app = Flask(__name__)
 
 WHATSAPP_NUMERO = "5537998122880"
+LINK_ENTRADA = "/nosquefaz"
 
 SABORES = [
     {"id": "carne_sol_creme_alho", "nome": "Carne de sol com creme de alho", "preco": 18.0},
@@ -114,12 +115,17 @@ def processar_pedido():
 
 @app.route("/", methods=["GET"])
 def raiz():
-    return redirect("/entrada")
+    return redirect(LINK_ENTRADA)
 
 
+@app.route("/nosquefaz", methods=["GET", "POST"])
 @app.route("/entrada", methods=["GET", "POST"])
 @app.route("/pedido", methods=["GET", "POST"])
 def entrada():
+    # Keep old routes working, but use /nosquefaz as the canonical entry link.
+    if request.method == "GET" and request.path in {"/entrada", "/pedido"}:
+        return redirect(LINK_ENTRADA)
+
     if request.method == "GET":
         return render_inicio()
     return processar_pedido()

@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nós que faz | Mini empadões artesanais</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="shape shape-1"></div>
+    <div class="shape shape-2"></div>
+
+    <header class="hero">
+        <div class="hero-grid">
+            <div class="hero-copy">
+                <p class="eyebrow">NÓS QUE FAZ</p>
+                <h1>Mini empadões artesanais com pedido direto no WhatsApp</h1>
+                <p class="hero-text">
+                    Escolha os sabores, defina entrega ou retirada e envie seu pedido em segundos.
+                    Tudo com total calculado automaticamente.
+                </p>
+                <div class="hero-tags">
+                    <span>WhatsApp: (37) 99812-2880</span>
+                    <span>Pix e dinheiro</span>
+                    <span>Entrega e retirada</span>
+                </div>
+                <a class="hero-cta" href="#pedido">Fazer pedido agora</a>
+            </div>
+
+            <div class="hero-card">
+                <img src="/static/logo.png" alt="Logo Nós que faz">
+                <h2>O sabor que encanta</h2>
+                <p>Mini empadões artesanais.</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="page">
+        <div class="layout">
+            <form id="pedido" method="POST" class="order-card">
+                <div class="section-title">
+                    <h2>Monte seu pedido</h2>
+                    <p>Preencha os dados abaixo para enviar no WhatsApp.</p>
+                </div>
+
+                {% if erro %}
+                <p class="erro">{{ erro }}</p>
+                {% endif %}
+
+                <section class="form-block">
+                    <h3>1. Dados do cliente</h3>
+                    <label for="nome">Nome</label>
+                    <input id="nome" type="text" name="nome" placeholder="Seu nome" required>
+                </section>
+
+                <section class="form-block">
+                    <h3>2. Sabores</h3>
+                    <div class="flavor-grid">
+                        {% for sabor in sabores %}
+                        <article class="flavor-item">
+                            <div>
+                                <p class="flavor-name">{{ sabor.nome }}</p>
+                                <p class="flavor-price">R$ {{ "%.2f"|format(sabor.preco)|replace('.', ',') }}</p>
+                            </div>
+                            <div class="qty-wrap">
+                                <label for="qtd_{{ sabor.id }}">Qtd.</label>
+                                <input
+                                    id="qtd_{{ sabor.id }}"
+                                    type="number"
+                                    name="qtd_{{ sabor.id }}"
+                                    min="0"
+                                    value="0"
+                                    data-preco="{{ sabor.preco }}"
+                                    data-nome="{{ sabor.nome }}"
+                                    inputmode="numeric"
+                                >
+                            </div>
+                        </article>
+                        {% endfor %}
+                    </div>
+                </section>
+
+                <section class="form-block">
+                    <h3>3. Entrega ou retirada</h3>
+                    <label for="tipo">Tipo de pedido</label>
+                    <select id="tipo" name="tipo" required>
+                        <option value="">Selecione</option>
+                        <option value="Entrega">Entrega</option>
+                        <option value="Retirada">Retirada</option>
+                    </select>
+
+                    <div id="entrega-wrap" class="hidden">
+                        <label for="bairro">Bairro (cálculo da entrega)</label>
+                        <select id="bairro" name="bairro">
+                            <option value="">Selecione o bairro</option>
+                            {% for bairro, taxa in taxas.items() %}
+                            <option value="{{ bairro }}" data-taxa="{{ taxa }}">
+                                {{ bairro }} - R$ {{ "%.2f"|format(taxa)|replace('.', ',') }}
+                            </option>
+                            {% endfor %}
+                        </select>
+
+                        <label for="endereco">Endereço completo</label>
+                        <input id="endereco" type="text" name="endereco" placeholder="Rua, número, bairro, referência">
+                    </div>
+                </section>
+
+                <section class="form-block">
+                    <h3>4. Pagamento e horário</h3>
+                    <label for="pagamento">Forma de pagamento</label>
+                    <select id="pagamento" name="pagamento" required>
+                        <option value="">Selecione</option>
+                        <option value="pix">PIX</option>
+                        <option value="dinheiro">Dinheiro</option>
+                    </select>
+
+                    <div id="troco-wrap" class="hidden">
+                        <label for="troco_para">Troco para quanto? (opcional)</label>
+                        <input id="troco_para" type="number" name="troco_para" min="0" step="0.01" placeholder="Ex.: 50,00">
+                    </div>
+
+                    <div class="inline-grid">
+                        <div>
+                            <label for="data">Data</label>
+                            <input id="data" type="date" name="data" required>
+                        </div>
+                        <div>
+                            <label for="horario">Horário</label>
+                            <input id="horario" type="time" name="horario" required>
+                        </div>
+                    </div>
+
+                    <label for="observacao">Observação (opcional)</label>
+                    <textarea id="observacao" name="observacao" rows="3" placeholder="Alguma observação para o pedido"></textarea>
+                </section>
+
+                <div class="checkout-box">
+                    <div class="checkout-line">
+                        <span>Subtotal dos itens</span>
+                        <strong id="subtotal">R$ 0,00</strong>
+                    </div>
+                    <div class="checkout-line">
+                        <span>Entrega</span>
+                        <strong id="taxa-entrega">R$ 0,00</strong>
+                    </div>
+                    <div class="checkout-line total">
+                        <span>Total final</span>
+                        <strong id="total-compra">R$ 0,00</strong>
+                    </div>
+                </div>
+
+                <button class="btn-submit" type="submit">Enviar pedido no WhatsApp</button>
+            </form>
+
+            <aside class="side-panel">
+                <section class="panel-card">
+                    <h3>Resumo do pedido</h3>
+                    <ul id="resumo-itens" class="summary-list">
+                        <li>Nenhum item selecionado.</li>
+                    </ul>
+                </section>
+
+                <section class="panel-card">
+                    <h3>Taxas de entrega</h3>
+                    <ul class="taxa-list">
+                        {% for bairro, taxa in taxas.items() %}
+                        <li>
+                            <span>{{ bairro }}</span>
+                            <strong>R$ {{ "%.2f"|format(taxa)|replace('.', ',') }}</strong>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </section>
+
+                <section class="panel-card contact">
+                    <h3>Atendimento</h3>
+                    <p>WhatsApp: <strong>(37) 99812-2880</strong></p>
+                    <p class="small">Pedido finalizado em um clique.</p>
+                </section>
+            </aside>
+        </div>
+    </main>
+
+    <footer class="footer">
+        Nós que faz - Mini empadões artesanais.
+    </footer>
+
+    <script>
+        const tipo = document.getElementById("tipo");
+        const bairro = document.getElementById("bairro");
+        const pagamento = document.getElementById("pagamento");
+        const entregaWrap = document.getElementById("entrega-wrap");
+        const endereco = document.getElementById("endereco");
+        const trocoWrap = document.getElementById("troco-wrap");
+        const dataInput = document.getElementById("data");
+
+        const subtotalEl = document.getElementById("subtotal");
+        const taxaEntregaEl = document.getElementById("taxa-entrega");
+        const totalCompraEl = document.getElementById("total-compra");
+        const resumoItensEl = document.getElementById("resumo-itens");
+        const qtdInputs = document.querySelectorAll('input[name^="qtd_"]');
+
+        function formatarMoeda(valor) {
+            return valor.toLocaleString("pt-BR", {
+                style: "currency",
+                currency: "BRL"
+            });
+        }
+
+        function obterSubtotal() {
+            let subtotal = 0;
+            qtdInputs.forEach((input) => {
+                const quantidade = Number(input.value) || 0;
+                const preco = Number(input.dataset.preco) || 0;
+                subtotal += quantidade * preco;
+            });
+            return subtotal;
+        }
+
+        function obterTaxaEntrega() {
+            if (tipo.value !== "Entrega") {
+                return 0;
+            }
+            const opcao = bairro.options[bairro.selectedIndex];
+            return Number(opcao?.dataset?.taxa) || 0;
+        }
+
+        function atualizarCamposVisiveis() {
+            const ehEntrega = tipo.value === "Entrega";
+            const ehDinheiro = pagamento.value === "dinheiro";
+
+            entregaWrap.classList.toggle("hidden", !ehEntrega);
+            bairro.required = ehEntrega;
+            endereco.required = ehEntrega;
+            trocoWrap.classList.toggle("hidden", !ehDinheiro);
+        }
+
+        function atualizarResumoItens() {
+            const itensSelecionados = [];
+
+            qtdInputs.forEach((input) => {
+                const quantidade = Number(input.value) || 0;
+                if (!quantidade) {
+                    return;
+                }
+
+                const nome = input.dataset.nome;
+                const preco = Number(input.dataset.preco) || 0;
+                const totalItem = quantidade * preco;
+                itensSelecionados.push(`${nome} x${quantidade} - ${formatarMoeda(totalItem)}`);
+            });
+
+            resumoItensEl.innerHTML = "";
+
+            if (!itensSelecionados.length) {
+                resumoItensEl.innerHTML = "<li>Nenhum item selecionado.</li>";
+                return;
+            }
+
+            itensSelecionados.forEach((texto) => {
+                const li = document.createElement("li");
+                li.textContent = texto;
+                resumoItensEl.appendChild(li);
+            });
+        }
+
+        function atualizarTotais() {
+            const subtotal = obterSubtotal();
+            const taxa = obterTaxaEntrega();
+            const total = subtotal + taxa;
+
+            subtotalEl.textContent = formatarMoeda(subtotal);
+            taxaEntregaEl.textContent = formatarMoeda(taxa);
+            totalCompraEl.textContent = formatarMoeda(total);
+        }
+
+        function atualizarTela() {
+            atualizarCamposVisiveis();
+            atualizarResumoItens();
+            atualizarTotais();
+        }
+
+        const hoje = new Date().toISOString().split("T")[0];
+        dataInput.min = hoje;
+
+        tipo.addEventListener("change", atualizarTela);
+        bairro.addEventListener("change", atualizarTela);
+        pagamento.addEventListener("change", atualizarTela);
+        qtdInputs.forEach((input) => input.addEventListener("input", atualizarTela));
+
+        atualizarTela();
+    </script>
+</body>
+</html>

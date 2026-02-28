@@ -12,5 +12,5 @@
 2. Selecione `Deploy from GitHub repo`.
 3. Escolha o repositório `biancasouzaoffice-rgb/nosquefaz`.
 4. O Railway vai usar `railway.json` e iniciar com:
-   `gunicorn --chdir nosquefaz app:app`.
+   `gunicorn app:app`.
 5. Em `Settings` -> `Networking`, gere o domínio público.

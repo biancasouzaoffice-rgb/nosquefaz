@@ -1,1 +1,1 @@
-web: gunicorn --chdir nosquefaz app:app
+web: gunicorn app:app

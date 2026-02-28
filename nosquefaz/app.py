@@ -1,4 +1,4 @@
-from flask import Flask, redirect, render_template, request
+from flask import Flask, redirect, render_template, request, url_for
 import urllib.parse
 
 app = Flask(__name__)
@@ -37,11 +37,7 @@ def render_inicio(erro=""):
     return render_template("index.html", sabores=SABORES, taxas=TAXAS_ENTREGA, erro=erro)
 
 
-@app.route("/", methods=["GET", "POST"])
-def index():
-    if request.method == "GET":
-        return render_inicio()
-
+def processar_pedido():
     nome = request.form.get("nome", "").strip()
     tipo = request.form.get("tipo", "").strip()
     data = request.form.get("data", "").strip()
@@ -114,6 +110,19 @@ def index():
     texto = urllib.parse.quote("\n".join(mensagem))
     link = f"https://wa.me/{WHATSAPP_NUMERO}?text={texto}"
     return redirect(link)
+
+
+@app.route("/", methods=["GET"])
+def raiz():
+    return redirect("/entrada")
+
+
+@app.route("/entrada", methods=["GET", "POST"])
+@app.route("/pedido", methods=["GET", "POST"])
+def entrada():
+    if request.method == "GET":
+        return render_inicio()
+    return processar_pedido()
 
 
 if __name__ == "__main__":

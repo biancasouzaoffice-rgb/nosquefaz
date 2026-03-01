@@ -12,7 +12,7 @@ SABORES = [
     {"id": "fraldinha", "nome": "Fraldinha", "preco": 15.0},
     {"id": "lombo_abacaxi", "nome": "Lombo com abacaxi", "preco": 15.0},
     {"id": "frango_bacon", "nome": "Frango com bacon", "preco": 15.0},
-    {"id": "frango", "nome": "Frango", "preco": 15.0},
+    {"id": "frango_requeijao", "nome": "Frango com requeijão", "preco": 15.0},
 ]
 
 TAXAS_ENTREGA = {

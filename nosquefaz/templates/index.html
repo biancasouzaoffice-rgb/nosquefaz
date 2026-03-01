@@ -1,297 +1,471 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nós que faz | Mini empadões artesanais</title>
+    <title>PortfÃ³lio Pro | Desenvolvedora Full Stack</title>
+    <meta name="description" content="PortfÃ³lio moderno de desenvolvedora Full Stack com projetos, habilidades e contato.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
-    <div class="shape shape-1"></div>
-    <div class="shape shape-2"></div>
+    <div class="bg-orb orb-purple"></div>
+    <div class="bg-orb orb-blue"></div>
 
-    <header class="hero">
-        <div class="hero-grid">
-            <div class="hero-copy">
-                <p class="eyebrow">NÓS QUE FAZ</p>
-                <h1>Mini empadões artesanais com pedido direto no WhatsApp</h1>
-                <p class="hero-text">
-                    Escolha os sabores, defina entrega ou retirada e envie seu pedido em segundos.
-                    Tudo com total calculado automaticamente.
-                </p>
-                <div class="hero-tags">
-                    <span>WhatsApp: (37) 99812-2880</span>
-                    <span>Pix e dinheiro</span>
-                    <span>Entrega e retirada</span>
-                </div>
-                <a class="hero-cta" href="#pedido">Fazer pedido agora</a>
-            </div>
+    <header class="site-nav" id="top">
+        <div class="container nav-inner">
+            <a class="brand" href="#top">&lt;Dev /&gt;</a>
 
-            <div class="hero-card">
-                <img src="/static/logo.png" alt="Logo Nós que faz">
-                <h2>O sabor que encanta</h2>
-                <p>Mini empadões artesanais.</p>
-            </div>
+            <nav class="desktop-nav" aria-label="NavegaÃ§Ã£o principal">
+                <a href="#top">InÃ­cio</a>
+                <a href="#about">Sobre</a>
+                <a href="#projects">Projetos</a>
+                <a href="#skills">Skills</a>
+                <a href="#contact">Contato</a>
+            </nav>
+
+            <button class="mobile-toggle" id="mobile-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Abrir menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
+        <nav class="mobile-nav" id="mobile-nav" aria-label="NavegaÃ§Ã£o mobile">
+            <a href="#top">InÃ­cio</a>
+            <a href="#about">Sobre</a>
+            <a href="#projects">Projetos</a>
+            <a href="#skills">Skills</a>
+            <a href="#contact">Contato</a>
+        </nav>
     </header>
 
-    <main class="page">
-        <div class="layout">
-            <form id="pedido" method="POST" class="order-card">
-                <div class="section-title">
-                    <h2>Monte seu pedido</h2>
-                    <p>Preencha os dados abaixo para enviar no WhatsApp.</p>
+    <main>
+        <section class="section hero">
+            <div class="container hero-content">
+                <p class="hero-label reveal">Desenvolvedora Full Stack</p>
+                <h1 class="hero-title reveal reveal-delay-1">
+                    <span class="title-muted">OlÃ¡, eu sou</span>
+                    <span class="title-strong">Bianca Souza</span>
+                </h1>
+                <p class="hero-lead reveal reveal-delay-2">
+                    Transformo ideias em cÃ³digo elegante e experiÃªncias digitais memorÃ¡veis.
+                    Especializada em React, Node.js e arquiteturas modernas.
+                </p>
+
+                <div class="social-links reveal reveal-delay-3">
+                    <a class="icon-btn" href="mailto:biancasouzaoffice@gmail.com" aria-label="Email">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6.5A2.5 2.5 0 0 1 5.5 4h13A2.5 2.5 0 0 1 21 6.5v11a2.5 2.5 0 0 1-2.5 2.5h-13A2.5 2.5 0 0 1 3 17.5zM5.5 6a.5.5 0 0 0-.5.5v.26l7 4.56 7-4.56V6.5a.5.5 0 0 0-.5-.5zm13.5 3.14-6.46 4.2a1 1 0 0 1-1.08 0L5 9.14V17.5c0 .28.22.5.5.5h13a.5.5 0 0 0 .5-.5z"></path></svg>
+                    </a>
+                    <a class="icon-btn" href="https://wa.me/5537991999294" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.601 2.326a7.612 7.612 0 0 0-6.663 11.464L5.22 19.973l6.328-1.654a7.608 7.608 0 0 0 11.015-6.744 7.61 7.61 0 0 0-8.962-7.249zm-.063 13.854h-.002a6.138 6.138 0 0 1-3.133-.862l-.225-.133-3.741.978 1-3.648-.147-.237a6.142 6.142 0 0 1 1.065-7.722 6.14 6.14 0 0 1 10.48 4.358 6.14 6.14 0 0 1-6.297 6.266zm3.369-4.597c-.184-.092-1.088-.537-1.257-.599-.169-.062-.292-.092-.415.092-.123.184-.476.599-.584.722-.108.123-.215.138-.4.046-.184-.092-.777-.286-1.48-.913-.546-.486-.915-1.086-1.023-1.27-.108-.184-.011-.283.081-.375.083-.083.184-.215.277-.323.092-.108.123-.184.184-.307.062-.123.031-.23-.015-.323-.046-.092-.415-1.001-.569-1.371-.149-.359-.301-.31-.415-.316-.108-.006-.23-.007-.354-.007a.678.678 0 0 0-.492.23c-.169.184-.646.63-.646 1.537 0 .907.661 1.783.753 1.906.092.123 1.3 1.985 3.152 2.782.441.19.785.303 1.053.388.442.14.844.12 1.162.073.354-.053 1.088-.445 1.242-.876.154-.43.154-.8.108-.876-.046-.077-.169-.123-.354-.215z"></path></svg>
+                    </a>
                 </div>
 
-                {% if erro %}
-                <p class="erro">{{ erro }}</p>
-                {% endif %}
+                <a class="btn-outline reveal reveal-delay-4" href="#projects">
+                    Ver Projetos
+                    <span class="arrow">â†“</span>
+                </a>
+            </div>
 
-                <section class="form-block">
-                    <h3>1. Dados do cliente</h3>
-                    <label for="nome">Nome</label>
-                    <input id="nome" type="text" name="nome" placeholder="Seu nome" required>
-                </section>
+            <div class="scroll-cue" aria-hidden="true">
+                <div class="scroll-dot"></div>
+            </div>
+        </section>
 
-                <section class="form-block">
-                    <h3>2. Sabores</h3>
-                    <div class="flavor-grid">
-                        {% for sabor in sabores %}
-                        <article class="flavor-item">
-                            <div>
-                                <p class="flavor-name">{{ sabor.nome }}</p>
-                                <p class="flavor-price">R$ {{ "%.2f"|format(sabor.preco)|replace('.', ',') }}</p>
-                            </div>
-                            <div class="qty-wrap">
-                                <label for="qtd_{{ sabor.id }}">Qtd.</label>
-                                <input
-                                    id="qtd_{{ sabor.id }}"
-                                    type="number"
-                                    name="qtd_{{ sabor.id }}"
-                                    min="0"
-                                    value="0"
-                                    data-preco="{{ sabor.preco }}"
-                                    data-nome="{{ sabor.nome }}"
-                                    inputmode="numeric"
-                                >
-                            </div>
+        <section class="section" id="about">
+            <div class="container">
+                <div class="section-heading reveal">
+                    <span>Sobre</span>
+                    <h2>Quem sou eu</h2>
+                    <div class="heading-line"></div>
+                </div>
+
+                <div class="about-grid">
+                    <article class="glass-card bio-card reveal reveal-delay-1">
+                        <p>
+                            Sou uma desenvolvedora apaixonada por criar soluÃ§Ãµes digitais que fazem a diferenÃ§a.
+                            Tenho trabalhado em projetos que vÃ£o desde startups atÃ© grandes empresas.
+                        </p>
+                        <p>
+                            Minha jornada comeÃ§ou com curiosidade sobre como as coisas funcionam, e hoje transformo
+                            essa curiosidade em cÃ³digo funcional e elegante.
+                        </p>
+                        <p class="bio-muted">
+                            Quando nÃ£o estou codando, vocÃª me encontra explorando novas tecnologias, contribuindo
+                            para projetos open source ou tomando um bom cafÃ©.
+                        </p>
+                    </article>
+
+                    <div class="feature-grid">
+                        <article class="glass-card feature-card reveal reveal-delay-1">
+                            <div class="feature-icon">&lt;/&gt;</div>
+                            <h3>Clean Code</h3>
+                            <p>CÃ³digo limpo, legÃ­vel e bem documentado.</p>
                         </article>
-                        {% endfor %}
-                    </div>
-                </section>
-
-                <section class="form-block">
-                    <h3>3. Entrega ou retirada</h3>
-                    <label for="tipo">Tipo de pedido</label>
-                    <select id="tipo" name="tipo" required>
-                        <option value="">Selecione</option>
-                        <option value="Entrega">Entrega</option>
-                        <option value="Retirada">Retirada</option>
-                    </select>
-
-                    <div id="entrega-wrap" class="hidden">
-                        <label for="bairro">Bairro (cálculo da entrega)</label>
-                        <select id="bairro" name="bairro">
-                            <option value="">Selecione o bairro</option>
-                            {% for bairro, taxa in taxas.items() %}
-                            <option value="{{ bairro }}" data-taxa="{{ taxa }}">
-                                {{ bairro }} - R$ {{ "%.2f"|format(taxa)|replace('.', ',') }}
-                            </option>
-                            {% endfor %}
-                        </select>
-
-                        <label for="endereco">Endereço completo</label>
-                        <input id="endereco" type="text" name="endereco" placeholder="Rua, número, bairro, referência">
-                    </div>
-                </section>
-
-                <section class="form-block">
-                    <h3>4. Pagamento e horário</h3>
-                    <label for="pagamento">Forma de pagamento</label>
-                    <select id="pagamento" name="pagamento" required>
-                        <option value="">Selecione</option>
-                        <option value="pix">PIX</option>
-                        <option value="dinheiro">Dinheiro</option>
-                    </select>
-
-                    <div id="troco-wrap" class="hidden">
-                        <label for="troco_para">Troco para quanto? (opcional)</label>
-                        <input id="troco_para" type="number" name="troco_para" min="0" step="0.01" placeholder="Ex.: 50,00">
-                    </div>
-
-                    <div class="inline-grid">
-                        <div>
-                            <label for="data">Data</label>
-                            <input id="data" type="date" name="data" required>
-                        </div>
-                        <div>
-                            <label for="horario">Horário</label>
-                            <input id="horario" type="time" name="horario" required>
-                        </div>
-                    </div>
-
-                    <label for="observacao">Observação (opcional)</label>
-                    <textarea id="observacao" name="observacao" rows="3" placeholder="Alguma observação para o pedido"></textarea>
-                </section>
-
-                <div class="checkout-box">
-                    <div class="checkout-line">
-                        <span>Subtotal dos itens</span>
-                        <strong id="subtotal">R$ 0,00</strong>
-                    </div>
-                    <div class="checkout-line">
-                        <span>Entrega</span>
-                        <strong id="taxa-entrega">R$ 0,00</strong>
-                    </div>
-                    <div class="checkout-line total">
-                        <span>Total final</span>
-                        <strong id="total-compra">R$ 0,00</strong>
+                        <article class="glass-card feature-card reveal reveal-delay-2">
+                            <div class="feature-icon">&#9678;</div>
+                            <h3>UI/UX Design</h3>
+                            <p>Interfaces bonitas e intuitivas.</p>
+                        </article>
+                        <article class="glass-card feature-card reveal reveal-delay-3">
+                            <div class="feature-icon">&#9889;</div>
+                            <h3>Performance</h3>
+                            <p>AplicaÃ§Ãµes rÃ¡pidas e otimizadas.</p>
+                        </article>
+                        <article class="glass-card feature-card reveal reveal-delay-4">
+                            <div class="feature-icon">&#10003;</div>
+                            <h3>DedicaÃ§Ã£o</h3>
+                            <p>Comprometimento com cada projeto.</p>
+                        </article>
                     </div>
                 </div>
+            </div>
+        </section>
 
-                <button class="btn-submit" type="submit">Enviar pedido no WhatsApp</button>
-            </form>
+        <section class="section" id="projects">
+            <div class="container">
+                <div class="section-heading reveal">
+                    <span>PortfÃ³lio</span>
+                    <h2>Projetos em Destaque</h2>
+                    <div class="heading-line"></div>
+                </div>
 
-            <aside class="side-panel">
-                <section class="panel-card">
-                    <h3>Resumo do pedido</h3>
-                    <ul id="resumo-itens" class="summary-list">
-                        <li>Nenhum item selecionado.</li>
-                    </ul>
-                </section>
+                <div class="featured-list">
+                    <article class="glass-card project-card reveal reveal-delay-1">
+                        <div class="project-text">
+                            <h3>E-Commerce Platform</h3>
+                            <p>Plataforma completa de e-commerce com carrinho, pagamentos e painel admin. Desenvolvido com React, Node.js e PostgreSQL.</p>
+                            <div class="tag-list">
+                                <span>React</span>
+                                <span>Node.js</span>
+                                <span>PostgreSQL</span>
+                                <span>Stripe</span>
+                            </div>
+                        </div>
+                        <div class="project-links">
+                            <a class="icon-btn" href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label="GitHub do projeto">
+                                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.08.66-.21.66-.47v-1.66c-2.7.58-3.27-1.15-3.27-1.15-.45-1.16-1.1-1.47-1.1-1.47-.9-.61.06-.6.06-.6 1 .08 1.53 1.03 1.53 1.03.9 1.53 2.35 1.09 2.92.84.1-.65.35-1.09.64-1.34-2.16-.25-4.43-1.08-4.43-4.81 0-1.06.38-1.92 1.02-2.59-.1-.25-.44-1.26.1-2.62 0 0 .83-.27 2.72 1a9.43 9.43 0 0 1 4.95 0c1.89-1.27 2.72-1 2.72-1 .54 1.36.2 2.37.1 2.62.64.67 1.02 1.53 1.02 2.59 0 3.74-2.27 4.56-4.44 4.8.36.31.68.92.68 1.86v2.76c0 .26.16.56.67.47A10 10 0 0 0 12 2z"></path></svg>
+                            </a>
+                            <a class="icon-btn" href="https://demo.com" target="_blank" rel="noopener noreferrer" aria-label="Demo do projeto">
+                                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42 9.3-9.29H14zM5 5h6v2H7v10h10v-4h2v6H5z"></path></svg>
+                            </a>
+                        </div>
+                    </article>
 
-                <section class="panel-card">
-                    <h3>Taxas de entrega</h3>
-                    <ul class="taxa-list">
-                        {% for bairro, taxa in taxas.items() %}
-                        <li>
-                            <span>{{ bairro }}</span>
-                            <strong>R$ {{ "%.2f"|format(taxa)|replace('.', ',') }}</strong>
-                        </li>
-                        {% endfor %}
-                    </ul>
-                </section>
+                    <article class="glass-card project-card reveal reveal-delay-2">
+                        <div class="project-text">
+                            <h3>Task Management App</h3>
+                            <p>Aplicativo de gerenciamento de tarefas com drag-and-drop, colaboraÃ§Ã£o em tempo real e notificaÃ§Ãµes.</p>
+                            <div class="tag-list">
+                                <span>Next.js</span>
+                                <span>TypeScript</span>
+                                <span>Prisma</span>
+                                <span>Socket.io</span>
+                            </div>
+                        </div>
+                        <div class="project-links">
+                            <a class="icon-btn" href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label="GitHub do projeto">
+                                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.08.66-.21.66-.47v-1.66c-2.7.58-3.27-1.15-3.27-1.15-.45-1.16-1.1-1.47-1.1-1.47-.9-.61.06-.6.06-.6 1 .08 1.53 1.03 1.53 1.03.9 1.53 2.35 1.09 2.92.84.1-.65.35-1.09.64-1.34-2.16-.25-4.43-1.08-4.43-4.81 0-1.06.38-1.92 1.02-2.59-.1-.25-.44-1.26.1-2.62 0 0 .83-.27 2.72 1a9.43 9.43 0 0 1 4.95 0c1.89-1.27 2.72-1 2.72-1 .54 1.36.2 2.37.1 2.62.64.67 1.02 1.53 1.02 2.59 0 3.74-2.27 4.56-4.44 4.8.36.31.68.92.68 1.86v2.76c0 .26.16.56.67.47A10 10 0 0 0 12 2z"></path></svg>
+                            </a>
+                            <a class="icon-btn" href="https://demo.com" target="_blank" rel="noopener noreferrer" aria-label="Demo do projeto">
+                                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42 9.3-9.29H14zM5 5h6v2H7v10h10v-4h2v6H5z"></path></svg>
+                            </a>
+                        </div>
+                    </article>
 
-                <section class="panel-card contact">
-                    <h3>Atendimento</h3>
-                    <p>WhatsApp: <strong>(37) 99812-2880</strong></p>
-                    <p class="small">Pedido finalizado em um clique.</p>
-                </section>
-            </aside>
-        </div>
+                    <article class="glass-card project-card reveal reveal-delay-3">
+                        <div class="project-text">
+                            <h3>API RESTful</h3>
+                            <p>API robusta com autenticaÃ§Ã£o JWT, rate limiting e documentaÃ§Ã£o completa com Swagger.</p>
+                            <div class="tag-list">
+                                <span>Node.js</span>
+                                <span>Express</span>
+                                <span>MongoDB</span>
+                                <span>Docker</span>
+                            </div>
+                        </div>
+                        <div class="project-links">
+                            <a class="icon-btn" href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label="GitHub do projeto">
+                                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.08.66-.21.66-.47v-1.66c-2.7.58-3.27-1.15-3.27-1.15-.45-1.16-1.1-1.47-1.1-1.47-.9-.61.06-.6.06-.6 1 .08 1.53 1.03 1.53 1.03.9 1.53 2.35 1.09 2.92.84.1-.65.35-1.09.64-1.34-2.16-.25-4.43-1.08-4.43-4.81 0-1.06.38-1.92 1.02-2.59-.1-.25-.44-1.26.1-2.62 0 0 .83-.27 2.72 1a9.43 9.43 0 0 1 4.95 0c1.89-1.27 2.72-1 2.72-1 .54 1.36.2 2.37.1 2.62.64.67 1.02 1.53 1.02 2.59 0 3.74-2.27 4.56-4.44 4.8.36.31.68.92.68 1.86v2.76c0 .26.16.56.67.47A10 10 0 0 0 12 2z"></path></svg>
+                            </a>
+                        </div>
+                    </article>
+                </div>
+
+                <h3 class="mini-title reveal">Outros Projetos</h3>
+                <div class="mini-project-grid">
+                    <article class="glass-card mini-project reveal reveal-delay-1">
+                        <h4>Portfolio Template</h4>
+                        <p>Template de portfÃ³lio moderno e responsivo com animaÃ§Ãµes suaves.</p>
+                        <div class="tag-list compact">
+                            <span>React</span>
+                            <span>Tailwind</span>
+                            <span>Framer Motion</span>
+                        </div>
+                    </article>
+                    <article class="glass-card mini-project reveal reveal-delay-2">
+                        <h4>Chat Application</h4>
+                        <p>Aplicativo de chat em tempo real com suporte a grupos e mensagens privadas.</p>
+                        <div class="tag-list compact">
+                            <span>React</span>
+                            <span>Firebase</span>
+                            <span>WebSocket</span>
+                        </div>
+                    </article>
+                    <article class="glass-card mini-project reveal reveal-delay-3">
+                        <h4>Weather Dashboard</h4>
+                        <p>Dashboard de previsÃ£o do tempo com grÃ¡ficos interativos e geolocalizaÃ§Ã£o.</p>
+                        <div class="tag-list compact">
+                            <span>Vue.js</span>
+                            <span>Chart.js</span>
+                            <span>OpenWeather API</span>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="skills">
+            <div class="container">
+                <div class="section-heading reveal">
+                    <span>Habilidades</span>
+                    <h2>Tecnologias &amp; Skills</h2>
+                    <div class="heading-line"></div>
+                </div>
+
+                <div class="skills-grid">
+                    <article class="glass-card skill-card reveal reveal-delay-1">
+                        <h3>Frontend</h3>
+                        <div class="skill-row">
+                            <div class="skill-label"><span>React</span><span>95%</span></div>
+                            <div class="progress-track"><div class="progress-fill" style="--level:95%;"></div></div>
+                        </div>
+                        <div class="skill-row">
+                            <div class="skill-label"><span>TypeScript</span><span>90%</span></div>
+                            <div class="progress-track"><div class="progress-fill" style="--level:90%;"></div></div>
+                        </div>
+                        <div class="skill-row">
+                            <div class="skill-label"><span>Next.js</span><span>85%</span></div>
+                            <div class="progress-track"><div class="progress-fill" style="--level:85%;"></div></div>
+                        </div>
+                        <div class="skill-row">
+                            <div class="skill-label"><span>Tailwind CSS</span><span>95%</span></div>
+                            <div class="progress-track"><div class="progress-fill" style="--level:95%;"></div></div>
+                        </div>
+                        <div class="skill-row">
+                            <div class="skill-label"><span>Vue.js</span><span>75%</span></div>
+                            <div class="progress-track"><div class="progress-fill" style="--level:75%;"></div></div>
+                        </div>
+                    </article>
+
+                    <article class="glass-card skill-card reveal reveal-delay-2">
+                        <h3>Backend</h3>
+                        <div class="skill-row">
+                            <div class="skill-label"><span>Node.js</span><span>90%</span></div>
+                            <div class="progress-track"><div class="progress-fill" style="--level:90%;"></div></div>
+                        </div>
+                        <div class="skill-row">
+                            <div class="skill-label"><span>Python</span><span>80%</span></div>
+                            <div class="progress-track"><div class="progress-fill" style="--level:80%;"></div></div>
+                        </div>
+                        <div class="skill-row">
+                            <div class="skill-label"><span>PostgreSQL</span><span>85%</span></div>
+                            <div class="progress-track"><div class="progress-fill" style="--level:85%;"></div></div>
+                        </div>
+                        <div class="skill-row">
+                            <div class="skill-label"><span>MongoDB</span><span>80%</span></div>
+                            <div class="progress-track"><div class="progress-fill" style="--level:80%;"></div></div>
+                        </div>
+                        <div class="skill-row">
+                            <div class="skill-label"><span>GraphQL</span><span>75%</span></div>
+                            <div class="progress-track"><div class="progress-fill" style="--level:75%;"></div></div>
+                        </div>
+                    </article>
+
+                    <article class="glass-card skill-card reveal reveal-delay-3">
+                        <h3>DevOps &amp; Tools</h3>
+                        <div class="skill-row">
+                            <div class="skill-label"><span>Git</span><span>95%</span></div>
+                            <div class="progress-track"><div class="progress-fill" style="--level:95%;"></div></div>
+                        </div>
+                        <div class="skill-row">
+                            <div class="skill-label"><span>Docker</span><span>80%</span></div>
+                            <div class="progress-track"><div class="progress-fill" style="--level:80%;"></div></div>
+                        </div>
+                        <div class="skill-row">
+                            <div class="skill-label"><span>AWS</span><span>70%</span></div>
+                            <div class="progress-track"><div class="progress-fill" style="--level:70%;"></div></div>
+                        </div>
+                        <div class="skill-row">
+                            <div class="skill-label"><span>CI/CD</span><span>75%</span></div>
+                            <div class="progress-track"><div class="progress-fill" style="--level:75%;"></div></div>
+                        </div>
+                        <div class="skill-row">
+                            <div class="skill-label"><span>Linux</span><span>80%</span></div>
+                            <div class="progress-track"><div class="progress-fill" style="--level:80%;"></div></div>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="tech-cloud reveal">
+                    <h3>Todas as Tecnologias</h3>
+                    <div class="tech-list">
+                        <span>JavaScript</span><span>TypeScript</span><span>React</span><span>Next.js</span><span>Vue.js</span>
+                        <span>Node.js</span><span>Express</span><span>NestJS</span><span>Python</span><span>Django</span>
+                        <span>PostgreSQL</span><span>MongoDB</span><span>Redis</span><span>GraphQL</span><span>REST API</span>
+                        <span>Docker</span><span>Kubernetes</span><span>AWS</span><span>Git</span><span>GitHub Actions</span>
+                        <span>Jest</span><span>Cypress</span><span>Figma</span><span>Tailwind</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="contact">
+            <div class="container">
+                <div class="section-heading reveal">
+                    <span>Contato</span>
+                    <h2>Vamos Conversar?</h2>
+                    <div class="heading-line"></div>
+                    <p>Estou sempre aberto a novas oportunidades e projetos interessantes. Entre em contato e vamos criar algo incrÃ­vel juntos.</p>
+                </div>
+
+                <div class="contact-grid">
+                    <article class="glass-card reveal reveal-delay-1">
+                        <form id="contact-form" class="contact-form">
+                            <label for="name">Nome</label>
+                            <input id="name" name="name" type="text" placeholder="Seu nome" required>
+
+                            <label for="email">Email</label>
+                            <input id="email" name="email" type="email" placeholder="seu@email.com" required>
+
+                            <label for="message">Mensagem</label>
+                            <textarea id="message" name="message" rows="5" placeholder="Sua mensagem..." required></textarea>
+
+                            <button id="submit-btn" type="submit">
+                                <span id="submit-label">Enviar Mensagem</span>
+                            </button>
+                            <p id="submit-success" class="success-msg" role="status" aria-live="polite"></p>
+                        </form>
+                    </article>
+
+                    <article class="contact-info reveal reveal-delay-2">
+                        <div class="info-stack">
+                            <div class="info-item glass-card">
+                                <span>Email</span>
+                                <a href="mailto:biancasouzaoffice@gmail.com">biancasouzaoffice@gmail.com</a>
+                            </div>
+                            <div class="info-item glass-card">
+                                <span>WhatsApp</span>
+                                <a href="https://wa.me/5537991999294" target="_blank" rel="noopener noreferrer">+55 (37) 9 9199-9294</a>
+                            </div>
+                        </div>
+
+                        <div class="social-block glass-card">
+                            <span>Contato rápido</span>
+                            <div class="social-links">
+                                <a class="icon-btn" href="mailto:biancasouzaoffice@gmail.com" aria-label="Email">
+                                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6.5A2.5 2.5 0 0 1 5.5 4h13A2.5 2.5 0 0 1 21 6.5v11a2.5 2.5 0 0 1-2.5 2.5h-13A2.5 2.5 0 0 1 3 17.5zM5.5 6a.5.5 0 0 0-.5.5v.26l7 4.56 7-4.56V6.5a.5.5 0 0 0-.5-.5zm13.5 3.14-6.46 4.2a1 1 0 0 1-1.08 0L5 9.14V17.5c0 .28.22.5.5.5h13a.5.5 0 0 0 .5-.5z"></path></svg>
+                                </a>
+                                <a class="icon-btn" href="https://wa.me/5537991999294" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+                                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.601 2.326a7.612 7.612 0 0 0-6.663 11.464L5.22 19.973l6.328-1.654a7.608 7.608 0 0 0 11.015-6.744 7.61 7.61 0 0 0-8.962-7.249zm-.063 13.854h-.002a6.138 6.138 0 0 1-3.133-.862l-.225-.133-3.741.978 1-3.648-.147-.237a6.142 6.142 0 0 1 1.065-7.722 6.14 6.14 0 0 1 10.48 4.358 6.14 6.14 0 0 1-6.297 6.266zm3.369-4.597c-.184-.092-1.088-.537-1.257-.599-.169-.062-.292-.092-.415.092-.123.184-.476.599-.584.722-.108.123-.215.138-.4.046-.184-.092-.777-.286-1.48-.913-.546-.486-.915-1.086-1.023-1.27-.108-.184-.011-.283.081-.375.083-.083.184-.215.277-.323.092-.108.123-.184.184-.307.062-.123.031-.23-.015-.323-.046-.092-.415-1.001-.569-1.371-.149-.359-.301-.31-.415-.316-.108-.006-.23-.007-.354-.007a.678.678 0 0 0-.492.23c-.169.184-.646.63-.646 1.537 0 .907.661 1.783.753 1.906.092.123 1.3 1.985 3.152 2.782.441.19.785.303 1.053.388.442.14.844.12 1.162.073.354-.053 1.088-.445 1.242-.876.154-.43.154-.8.108-.876-.046-.077-.169-.123-.354-.215z"></path></svg>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="availability glass-card">
+                            <div class="status-line">
+                                <span class="dot"></span>
+                                <strong>Disponível para projetos</strong>
+                            </div>
+                            <p>Atualmente aceitando novos projetos freelance e oportunidades de trabalho.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
     </main>
 
-    <footer class="footer">
-        Nós que faz - Mini empadões artesanais.
+    <footer class="site-footer">
+        <p>Â© <span id="footer-year"></span> Bianca Souza. Todos os direitos reservados.</p>
+        <p>Feito com carinho e muito cafÃ©.</p>
     </footer>
 
     <script>
-        const tipo = document.getElementById("tipo");
-        const bairro = document.getElementById("bairro");
-        const pagamento = document.getElementById("pagamento");
-        const entregaWrap = document.getElementById("entrega-wrap");
-        const endereco = document.getElementById("endereco");
-        const trocoWrap = document.getElementById("troco-wrap");
-        const dataInput = document.getElementById("data");
+        const body = document.body;
+        const nav = document.querySelector(".site-nav");
+        const mobileToggle = document.getElementById("mobile-toggle");
+        const mobileNav = document.getElementById("mobile-nav");
+        const navLinks = document.querySelectorAll('a[href^="#"]');
+        const revealElements = document.querySelectorAll(".reveal");
+        const form = document.getElementById("contact-form");
+        const submitButton = document.getElementById("submit-btn");
+        const submitLabel = document.getElementById("submit-label");
+        const successText = document.getElementById("submit-success");
+        const footerYear = document.getElementById("footer-year");
 
-        const subtotalEl = document.getElementById("subtotal");
-        const taxaEntregaEl = document.getElementById("taxa-entrega");
-        const totalCompraEl = document.getElementById("total-compra");
-        const resumoItensEl = document.getElementById("resumo-itens");
-        const qtdInputs = document.querySelectorAll('input[name^="qtd_"]');
-
-        function formatarMoeda(valor) {
-            return valor.toLocaleString("pt-BR", {
-                style: "currency",
-                currency: "BRL"
-            });
+        function toggleMobileMenu(forceOpen) {
+            const willOpen = typeof forceOpen === "boolean" ? forceOpen : !mobileNav.classList.contains("open");
+            mobileNav.classList.toggle("open", willOpen);
+            mobileToggle.setAttribute("aria-expanded", willOpen ? "true" : "false");
+            body.classList.toggle("menu-open", willOpen);
         }
 
-        function obterSubtotal() {
-            let subtotal = 0;
-            qtdInputs.forEach((input) => {
-                const quantidade = Number(input.value) || 0;
-                const preco = Number(input.dataset.preco) || 0;
-                subtotal += quantidade * preco;
-            });
-            return subtotal;
-        }
+        mobileToggle.addEventListener("click", () => toggleMobileMenu());
 
-        function obterTaxaEntrega() {
-            if (tipo.value !== "Entrega") {
-                return 0;
-            }
-            const opcao = bairro.options[bairro.selectedIndex];
-            return Number(opcao?.dataset?.taxa) || 0;
-        }
-
-        function atualizarCamposVisiveis() {
-            const ehEntrega = tipo.value === "Entrega";
-            const ehDinheiro = pagamento.value === "dinheiro";
-
-            entregaWrap.classList.toggle("hidden", !ehEntrega);
-            bairro.required = ehEntrega;
-            endereco.required = ehEntrega;
-            trocoWrap.classList.toggle("hidden", !ehDinheiro);
-        }
-
-        function atualizarResumoItens() {
-            const itensSelecionados = [];
-
-            qtdInputs.forEach((input) => {
-                const quantidade = Number(input.value) || 0;
-                if (!quantidade) {
+        navLinks.forEach((link) => {
+            link.addEventListener("click", (event) => {
+                const href = link.getAttribute("href");
+                if (!href || !href.startsWith("#")) {
                     return;
                 }
-
-                const nome = input.dataset.nome;
-                const preco = Number(input.dataset.preco) || 0;
-                const totalItem = quantidade * preco;
-                itensSelecionados.push(`${nome} x${quantidade} - ${formatarMoeda(totalItem)}`);
+                const target = href === "#top" ? document.getElementById("top") : document.querySelector(href);
+                if (!target) {
+                    return;
+                }
+                event.preventDefault();
+                target.scrollIntoView({ behavior: "smooth", block: "start" });
+                toggleMobileMenu(false);
             });
+        });
 
-            resumoItensEl.innerHTML = "";
+        function onScroll() {
+            nav.classList.toggle("nav-scrolled", window.scrollY > 50);
+        }
 
-            if (!itensSelecionados.length) {
-                resumoItensEl.innerHTML = "<li>Nenhum item selecionado.</li>";
-                return;
-            }
+        window.addEventListener("scroll", onScroll);
+        onScroll();
 
-            itensSelecionados.forEach((texto) => {
-                const li = document.createElement("li");
-                li.textContent = texto;
-                resumoItensEl.appendChild(li);
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("revealed");
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+
+        revealElements.forEach((element) => observer.observe(element));
+
+        if (form) {
+            form.addEventListener("submit", async (event) => {
+                event.preventDefault();
+                submitButton.disabled = true;
+                submitLabel.textContent = "Enviando...";
+                successText.textContent = "";
+
+                await new Promise((resolve) => setTimeout(resolve, 900));
+
+                submitButton.disabled = false;
+                submitLabel.textContent = "Enviar Mensagem";
+                successText.textContent = "Mensagem enviada com sucesso! Entrarei em contato em breve.";
+                form.reset();
             });
         }
 
-        function atualizarTotais() {
-            const subtotal = obterSubtotal();
-            const taxa = obterTaxaEntrega();
-            const total = subtotal + taxa;
-
-            subtotalEl.textContent = formatarMoeda(subtotal);
-            taxaEntregaEl.textContent = formatarMoeda(taxa);
-            totalCompraEl.textContent = formatarMoeda(total);
-        }
-
-        function atualizarTela() {
-            atualizarCamposVisiveis();
-            atualizarResumoItens();
-            atualizarTotais();
-        }
-
-        const hoje = new Date().toISOString().split("T")[0];
-        dataInput.min = hoje;
-
-        tipo.addEventListener("change", atualizarTela);
-        bairro.addEventListener("change", atualizarTela);
-        pagamento.addEventListener("change", atualizarTela);
-        qtdInputs.forEach((input) => input.addEventListener("input", atualizarTela));
-
-        atualizarTela();
+        footerYear.textContent = new Date().getFullYear();
     </script>
 </body>
 </html>
+

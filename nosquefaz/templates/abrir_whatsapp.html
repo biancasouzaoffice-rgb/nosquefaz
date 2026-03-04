@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abrir pedido no WhatsApp</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f6f6f6;
+            color: #1f1f1f;
+            display: grid;
+            place-items: center;
+            min-height: 100vh;
+            padding: 16px;
+        }
+
+        .card {
+            width: 100%;
+            max-width: 420px;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 14px;
+            padding: 20px;
+            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+        }
+
+        h1 {
+            margin: 0 0 8px;
+            font-size: 1.3rem;
+        }
+
+        p {
+            margin: 0 0 14px;
+            line-height: 1.45;
+        }
+
+        .btn {
+            display: block;
+            width: 100%;
+            text-align: center;
+            text-decoration: none;
+            padding: 12px 14px;
+            border-radius: 10px;
+            font-weight: 700;
+            margin-top: 8px;
+        }
+
+        .btn-primary {
+            background: #25d366;
+            color: #fff;
+        }
+
+        .btn-secondary {
+            background: #ececec;
+            color: #222;
+        }
+
+        .hint {
+            font-size: 0.9rem;
+            color: #555;
+            margin-top: 12px;
+        }
+    </style>
+</head>
+<body>
+    <main class="card">
+        <h1>Seu pedido está pronto</h1>
+        <p>
+            Toque no botão abaixo para abrir o WhatsApp e finalizar o pedido.
+            No navegador do Instagram, isso é mais estável do que redirecionamento automático.
+        </p>
+
+        <a class="btn btn-primary" href="{{ link_api }}">Abrir WhatsApp</a>
+        <a class="btn btn-secondary" href="{{ link_wa_me }}">Alternativa de abertura</a>
+
+        <p class="hint">
+            Se não abrir, toque nos três pontos do Instagram e escolha
+            <strong>"Abrir no navegador"</strong>.
+        </p>
+    </main>
+
+    <script>
+        setTimeout(() => {
+            window.location.href = "{{ link_app }}";
+        }, 500);
+
+        setTimeout(() => {
+            window.location.href = "{{ link_api }}";
+        }, 1600);
+    </script>
+</body>
+</html>

@@ -34,6 +34,20 @@ def parse_int_positivo(valor):
     return max(numero, 0)
 
 
+def eh_navegador_instagram():
+    user_agent = request.headers.get("User-Agent", "").lower()
+    return "instagram" in user_agent or "fb_iab" in user_agent
+
+
+def montar_links_whatsapp(mensagem):
+    texto = urllib.parse.quote(mensagem)
+    return {
+        "wa_me": f"https://wa.me/{WHATSAPP_NUMERO}?text={texto}",
+        "api": f"https://api.whatsapp.com/send?phone={WHATSAPP_NUMERO}&text={texto}",
+        "app": f"whatsapp://send?phone={WHATSAPP_NUMERO}&text={texto}",
+    }
+
+
 def render_inicio(erro=""):
     return render_template("index.html", sabores=SABORES, taxas=TAXAS_ENTREGA, erro=erro)
 
@@ -108,9 +122,18 @@ def processar_pedido():
         ]
     )
 
-    texto = urllib.parse.quote("\n".join(mensagem))
-    link = f"https://wa.me/{WHATSAPP_NUMERO}?text={texto}"
-    return redirect(link)
+    mensagem_texto = "\n".join(mensagem)
+    links = montar_links_whatsapp(mensagem_texto)
+
+    if eh_navegador_instagram():
+        return render_template(
+            "abrir_whatsapp.html",
+            link_app=links["app"],
+            link_api=links["api"],
+            link_wa_me=links["wa_me"],
+        )
+
+    return redirect(links["wa_me"])
 
 
 @app.route("/", methods=["GET"])
@@ -122,7 +145,6 @@ def raiz():
 @app.route("/entrada", methods=["GET", "POST"])
 @app.route("/pedido", methods=["GET", "POST"])
 def entrada():
-    # Keep old routes working, but use /nosquefaz as the canonical entry link.
     if request.method == "GET" and request.path in {"/entrada", "/pedido"}:
         return redirect(LINK_ENTRADA)
 

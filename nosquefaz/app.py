@@ -147,6 +147,12 @@ def raiz():
     return redirect(LINK_ENTRADA)
 
 
+@app.route("/bizflow", methods=["GET"])
+@app.route("/bizflow-copy", methods=["GET"])
+def bizflow_copy():
+    return render_template("bizflow_copy.html")
+
+
 @app.route("/nosquefaz", methods=["GET", "POST"])
 @app.route("/entrada", methods=["GET", "POST"])
 @app.route("/pedido", methods=["GET", "POST"])

@@ -3,44 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nós que faz | Mini empadões artesanais</title>
+    <title>Nos Que Faz | Mini empadoes artesanais</title>
     {% if not modo_instagram %}
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
     {% endif %}
     <link rel="stylesheet" href="/static/style.css">
 </head>
 <body class="{% if modo_instagram %}instagram-lite{% endif %}">
-    <div class="shape shape-1"></div>
-    <div class="shape shape-2"></div>
+    <div class="ambient ambient-a"></div>
+    <div class="ambient ambient-b"></div>
 
-    <header class="hero">
+    <header class="hero-wrap">
+        <div class="topbar">
+            <a class="brand" href="#pedido">
+                <img src="/static/logo.png" alt="Logo Nos Que Faz">
+                <span class="brand-text">
+                    <strong>NOS QUE FAZ</strong>
+                    <small>Mini empadoes artesanais</small>
+                </span>
+            </a>
+            <a class="whats-chip" href="https://wa.me/5537998122880" target="_blank" rel="noopener">
+                WhatsApp (37) 99812-2880
+            </a>
+        </div>
+
         <div class="hero-grid">
             <div class="hero-copy">
-                <p class="eyebrow">NÓS QUE FAZ</p>
-                <h1>Mini empadões artesanais com pedido direto no WhatsApp</h1>
+                <p class="eyebrow">PEDIDO DIGITAL</p>
+                <h1>Pedido profissional no WhatsApp, com total calculado em tempo real.</h1>
                 <p class="hero-text">
-                    Escolha os sabores, defina entrega ou retirada e envie seu pedido em segundos.
-                    Tudo com total calculado automaticamente.
+                    Escolha sabores, informe entrega ou retirada e finalize em segundos.
+                    Fluxo direto, rapido e sem erro de valor.
                 </p>
-                <div class="hero-tags">
-                    <span>WhatsApp: (37) 99812-2880</span>
-                    <span>Pix e dinheiro</span>
-                    <span>Entrega e retirada</span>
+
+                <div class="hero-actions">
+                    <a class="btn-primary" href="#pedido">Fazer pedido agora</a>
+                    <span class="service-note">PIX e dinheiro - Entrega e retirada</span>
                 </div>
-                <a class="hero-cta" href="#pedido">Fazer pedido agora</a>
+
+                <ul class="quick-list">
+                    <li>Cardapio organizado por sabor</li>
+                    <li>Resumo automatico com subtotal e entrega</li>
+                    <li>Mensagem pronta para envio no WhatsApp</li>
+                </ul>
             </div>
 
-            <div class="hero-card">
-                <img src="/static/logo.png" alt="Logo Nós que faz">
-                <h2>O sabor que encanta</h2>
-                <p>Mini empadões artesanais.</p>
-            </div>
+            <aside class="hero-panel">
+                <h2>Atendimento rapido</h2>
+                <p>Preencha o formulario abaixo e envie seu pedido com um clique.</p>
+                <div class="panel-metrics">
+                    <article>
+                        <span>Pagamento</span>
+                        <strong>PIX / Dinheiro</strong>
+                    </article>
+                    <article>
+                        <span>Canal</span>
+                        <strong>WhatsApp</strong>
+                    </article>
+                    <article>
+                        <span>Modelo</span>
+                        <strong>Entrega / Retirada</strong>
+                    </article>
+                </div>
+            </aside>
         </div>
     </header>
 
-    <main class="page">
+    <main class="site-main">
         <div class="layout">
             <form id="pedido" method="POST" class="order-card">
                 <div class="section-title">
@@ -50,7 +81,7 @@
 
                 {% if modo_instagram %}
                 <p class="ig-hint">
-                    Você está no navegador do Instagram. Se travar, toque nos 3 pontos e escolha "Abrir no navegador".
+                    Voce esta no navegador do Instagram. Se travar, toque nos 3 pontos e escolha abrir no navegador.
                 </p>
                 {% endif %}
 
@@ -101,7 +132,7 @@
                     </select>
 
                     <div id="entrega-wrap" class="hidden">
-                        <label for="bairro">Bairro (cálculo da entrega)</label>
+                        <label for="bairro">Bairro (calculo da entrega)</label>
                         <select id="bairro" name="bairro">
                             <option value="">Selecione o bairro</option>
                             {% for bairro, taxa in taxas.items() %}
@@ -111,13 +142,13 @@
                             {% endfor %}
                         </select>
 
-                        <label for="endereco">Endereço completo</label>
-                        <input id="endereco" type="text" name="endereco" placeholder="Rua, número, bairro, referência">
+                        <label for="endereco">Endereco completo</label>
+                        <input id="endereco" type="text" name="endereco" placeholder="Rua, numero, bairro, referencia">
                     </div>
                 </section>
 
                 <section class="form-block">
-                    <h3>4. Pagamento e horário</h3>
+                    <h3>4. Pagamento e horario</h3>
                     <label for="pagamento">Forma de pagamento</label>
                     <select id="pagamento" name="pagamento" required>
                         <option value="">Selecione</option>
@@ -136,13 +167,13 @@
                             <input id="data" type="date" name="data" required>
                         </div>
                         <div>
-                            <label for="horario">Horário</label>
+                            <label for="horario">Horario</label>
                             <input id="horario" type="time" name="horario" required>
                         </div>
                     </div>
 
-                    <label for="observacao">Observação (opcional)</label>
-                    <textarea id="observacao" name="observacao" rows="3" placeholder="Alguma observação para o pedido"></textarea>
+                    <label for="observacao">Observacao (opcional)</label>
+                    <textarea id="observacao" name="observacao" rows="3" placeholder="Alguma observacao para o pedido"></textarea>
                 </section>
 
                 <div class="checkout-box">
@@ -186,14 +217,14 @@
                 <section class="panel-card contact">
                     <h3>Atendimento</h3>
                     <p>WhatsApp: <strong>(37) 99812-2880</strong></p>
-                    <p class="small">Pedido finalizado em um clique.</p>
+                    <p class="small">Envio rapido, valor claro e pedido organizado.</p>
                 </section>
             </aside>
         </div>
     </main>
 
     <footer class="footer">
-        Nós que faz - Mini empadões artesanais.
+        Nos Que Faz - Mini empadoes artesanais.
     </footer>
 
     <script>
